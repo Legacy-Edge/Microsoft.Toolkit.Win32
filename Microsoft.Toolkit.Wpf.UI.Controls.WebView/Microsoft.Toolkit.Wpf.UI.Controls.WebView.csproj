@@ -1,36 +1,29 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
-  <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.0</TargetFrameworks>
-    <RootNamespace>Microsoft.Toolkit.Win32.UI.Controls</RootNamespace>
-    <AssemblyName>Microsoft.Toolkit.Wpf.UI.Controls.WebView</AssemblyName>
+	<PropertyGroup>
+		<TargetFrameworks>net5.0-windows10.0.17763.0</TargetFrameworks>
+		<RootNamespace>Microsoft.Toolkit.Win32.UI.Controls</RootNamespace>
+		<AssemblyName>Microsoft.Toolkit.Wpf.UI.Controls.WebView</AssemblyName>
 
-    <Title>Windows Community Toolkit WPF WebView Control</Title>
-    <Description>
-      This library provides WebView XAML control for WPF by hosting web content in your WPF desktop application. It is part of the Windows Community Toolkit.
-      This control uses the Microsoft Edge rendering engine (EdgeHTML) or the the System.Windows.Controls.WebBrowser, for devices on older versions (WebViewCompatible), to embed a view that renders richly formatted HTML5 content from a remote web server, dynamically generated code, or content files.
-    </Description>
-    <PackageTags>WebView Win32 WPF XAML</PackageTags>
+		<DefineConstants>$(DefineConstants);WPF</DefineConstants>
 
-    <DefineConstants>$(DefineConstants);WPF</DefineConstants>
+		<TargetPlatformMinVersion>10.0.17134.0</TargetPlatformMinVersion>
+		<NoWarn>CS0618;CS1591;</NoWarn>
+		<Platforms>x64;x86;AnyCPU</Platforms>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
 
-    <TargetPlatformMinVersion>10.0.17134.0</TargetPlatformMinVersion>
-    <NoWarn>CS0618;CS1591;</NoWarn>
-    <Platforms>x64;x86;AnyCPU</Platforms>
-    <UseWPF>true</UseWPF>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+		<DefineConstants>$(DefineConstants);DEV_DEBUG;DEBUG_LAYOUT</DefineConstants>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
-    <DefineConstants>$(DefineConstants);DEV_DEBUG;DEBUG_LAYOUT</DefineConstants>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+		<DefineConstants>$(DefineConstants);DEV_DEBUG;DEBUG_LAYOUT</DefineConstants>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <DefineConstants>$(DefineConstants);DEV_DEBUG;DEBUG_LAYOUT</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants>$(DefineConstants);DEV_DEBUG;DEBUG_LAYOUT</DefineConstants>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DefineConstants>$(DefineConstants);DEV_DEBUG;DEBUG_LAYOUT</DefineConstants>
+	</PropertyGroup>
 
   <ItemGroup>
     <Compile Include="..\WebView.Shared\**\*.cs" />

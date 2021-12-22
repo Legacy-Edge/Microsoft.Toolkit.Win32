@@ -115,7 +115,7 @@ namespace Microsoft.Toolkit.Win32.UI.Controls.Interop.WinRT
 
         internal event EventHandler<WebViewControlUnsupportedUriSchemeIdentifiedEventArgs> UnsupportedUriSchemeIdentified = (sender, args) => { };
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Unviewable", Justification ="This is the name from WinRT")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Unviewable", Justification = "This is the name from WinRT")]
         internal event EventHandler<WebViewControlUnviewableContentIdentifiedEventArgs> UnviewableContentIdentified = (sender, args) => { };
 
         internal static bool IsSupported => OSVersionHelper.IsWindows10April2018OrGreater
@@ -1103,9 +1103,10 @@ namespace Microsoft.Toolkit.Win32.UI.Controls.Interop.WinRT
         private void UnsubscribeEvents()
         {
             if (_webViewControl == null)
-            {
                 return;
-            }
+
+            // ToDo: Find out, why app is crashing while unsubscribing!
+            return;
 
             _webViewControl.AcceleratorKeyPressed -= OnAcceleratorKeyPressed;
             _webViewControl.ContainsFullScreenElementChanged -= OnContainsFullScreenElementChanged;
@@ -1140,9 +1141,10 @@ namespace Microsoft.Toolkit.Win32.UI.Controls.Interop.WinRT
         private void UnsubscribeProcessExited()
         {
             if (Process == null)
-            {
                 return;
-            }
+
+            // ToDo: Find out, why app is crashing while unsubscribing!
+            return;
 
             try
             {
