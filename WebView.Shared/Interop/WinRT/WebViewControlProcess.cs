@@ -93,7 +93,7 @@ namespace Microsoft.Toolkit.Win32.UI.Controls.Interop.WinRT
                 throw new ArgumentNullException(nameof(hostWindowHandle));
             }
 
-            var wvc = await await Task.Run(() => CreateWebViewControlAsync(hostWindowHandle, bounds)).ConfigureAwait(false);
+            var wvc = await CreateWebViewControlAsync(hostWindowHandle, bounds);
 
             return new WebViewControlHost(wvc);
         }

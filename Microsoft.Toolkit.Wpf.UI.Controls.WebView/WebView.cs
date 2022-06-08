@@ -786,7 +786,7 @@ namespace Microsoft.Toolkit.Wpf.UI.Controls
                         var handle = ChildWindow.Handle;
                         var bounds = new windows.Foundation.Rect(0, 0, RenderSize.Width * DpiScale.DpiScaleX, RenderSize.Height * DpiScale.DpiScaleY);
 
-                        _webViewControl = await _process.CreateWebViewControlHostAsync(handle, bounds).ConfigureAwait(false);
+                        _webViewControl = await _process.CreateWebViewControlHostAsync(handle, bounds);
                     }
 
                     Verify.IsNotNull(_webViewControl);
@@ -800,7 +800,7 @@ namespace Microsoft.Toolkit.Wpf.UI.Controls
                         UpdateSize(RenderSize);
                     }
 
-                    DestroyWindowCore(ChildWindow);
+                    // DestroyWindowCore(ChildWindow);
 
                     SubscribeEvents();
                     _webViewControl.IsVisible = true;
